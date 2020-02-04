@@ -742,6 +742,7 @@
 					(p "sec-kas" "isc" z isc)
 					(p "sec-kas" z1 2)
 					(p "sec-kas" "isc" z1 isc)
+					(p "sec-kas" "sec-usr" z1 sec-usr)
 					(non (ltk sec-kas sec-as))
 					(non (ltk isc sec-as)))
 				(= z z1))
