@@ -899,36 +899,3 @@
 					(uniq pwd))
 				(false)))
 	)
-
-(comment "Old Security Goal 3 - Authentication of ISC with SR-AS / SR-KAS"
-	(defgoal rfk-rfcspec-cse
-		(forall ((time-usr-cse n-is-isc n-isc-dta time-isc-query 
-			time-kas-query pwd text) (usr is isc sec-usr sec-as sec-kas name) 
-			(ik-sk skey) (z1 strd))
-			(implies
-				(and (p "isc" z1 6) (p "isc" "usr" z1 usr) 
-					(p "isc" "is" z1 is) (p "isc" "isc" z1 isc) (p "isc" "sec-usr" z1 sec-usr) 
-					(p "isc" "sec-as" z1 sec-as) (p "isc" "sec-kas" z1 sec-kas)
-					(p "isc" "n-is-isc" z1 n-is-isc) (p "isc" "n-isc-dta" z1 n-isc-dta)
-					(p "isc" "time-usr-cse" z1 time-usr-cse) 
-					(p "isc" "time-isc-query" z1 time-isc-query)
-					(p "isc" "time-kas-query" z1 time-kas-query) 
-					(p "isc" "pwd" z1 pwd) (p "isc" "ik-sk" z1 ik-sk)	
-					(non (ltk is isc)) (non (ltk isc sec-as)) (non (ltk sec-kas sec-as))
-					(uniq n-isc-dta) (uniq pwd))
-				(exists ((z2 z3 strd))
-					(and (p "sec-as" z2 2) (p "sec-as" "isc" z2 isc) (p "sec-as" "sec-as" z2 sec-as)
-					(p "sec-as" "sec-kas" z2 sec-kas) (p "sec-as" "n-isc-dta" z2 n-isc-dta) 
-					(p "sec-as" "ik-sk" z2 ik-sk)
-					;
-					(p "sec-kas" z3 2) (p "sec-kas" "sec-as" z3 sec-as)
-					(p "sec-kas" "sec-kas" z3 sec-kas) (p "sec-kas" "isc" z3 isc)
-					(p "sec-kas" "sec-usr" z3 sec-usr) (p "sec-kas" "pwd" z3 pwd) 
-					(p "sec-kas" "time-isc-query" z3 time-isc-query)
-					(p "sec-kas" "time-kas-query" z3 time-kas-query)
-					(p "sec-kas" "ik-sk" z3 ik-sk))
-				)
-			)
-		)
-	)
-)
